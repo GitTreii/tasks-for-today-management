@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+
+<nav>
+    <a href="/">Today</a> |
+    <a href="/tasks">All Tasks</a> |
+    <a href="/profile">Profile</a> |
+    <a href="/about">About</a>
+</nav>
+
+<h1>Login</h1>
+
+<?php if (session()->getFlashdata('error')): ?>
+    <p><?= esc(session()->getFlashdata('error')) ?></p>
+<?php endif; ?>
+
+<form action="/login" method="post">
+
+    <label>Username:</label><br>
+    <input type="text" name="username" value="<?= old('username') ?>"><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" name="password"><br><br>
+
+    <button type="submit">Login</button>
+
+</form>
+
+</body>
+</html>
